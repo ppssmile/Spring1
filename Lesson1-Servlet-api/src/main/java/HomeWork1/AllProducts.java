@@ -5,16 +5,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Optional;
 
 @WebServlet(urlPatterns = "/products/*")
 public class AllProducts extends HttpServlet {
-
     private ProductRepo products;
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter pw = resp.getWriter();
@@ -46,8 +43,6 @@ public class AllProducts extends HttpServlet {
             pw.println("</ul>");
         }
     }
-
-
     @Override
     public void init() throws ServletException {
         products = new ProductRepo();
